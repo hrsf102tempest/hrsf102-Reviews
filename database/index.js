@@ -5,8 +5,8 @@ var connection = mysql.createConnection({
   database : 'yelpReviews'
 });
  
-const getReviews = function (whenReviews) {
-  connection.query('SELECT textBody from reviews', function(error, results, fields) {
+const getReviews = function (id, whenReviews) {
+  connection.query(`SELECT * from reviews WHERE ${id} = restaurantId`, function(error, results, fields) {
     if (error) {
       whenReviews(error);
     } else {

@@ -12,9 +12,9 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 
 
-app.get('/restaurants/10', function (req, res) {
-  console.log('THIE IS THE REQ', req)
-  controllers.getReviews((err, data) => {
+app.get('/restaurants/:restaurantId', function (req, res) {
+  console.log('THIE IS THE REQ', req.params.restaurantId)
+  controllers.getReviews(req.params.restaurantId, (err, data) => {
   	console.log('THIS BE THE req', req)
     if (err) {
       res.status(503).send(err);

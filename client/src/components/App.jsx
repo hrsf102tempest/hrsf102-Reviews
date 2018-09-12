@@ -12,7 +12,7 @@ class App extends React.Component {
 
   getReviews(restaurantId) {
     $.ajax({
-      url: 'http://localhost:3003/restaurants/10',
+      url: `http://localhost:3003/restaurants/${restaurantid}`,
       method: 'GET',
       success: (data) => {
       	console.log('THIS BE THE DATA', data);

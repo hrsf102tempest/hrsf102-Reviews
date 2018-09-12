@@ -5,7 +5,16 @@ var connection = mysql.createConnection({
   database : 'yelpReviews'
 });
  
-connection.connect();
+const getReviews = function (whenReviews) {
+  connection.query('SELECT textBody from reviews', function(error, results, fields) {
+    if (error) {
+      whenReviews(error);
+    } else {
+      whenReviews(null, results);
+    }
+  });
+};
+
  
 
-connection.end();
+module.exports.getReviews = getReviews;

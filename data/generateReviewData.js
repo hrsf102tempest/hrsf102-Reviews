@@ -17,7 +17,7 @@ var review = function(restaurantId) {
   checkIns: Math.floor(Math.random() * 5),
   textBody: faker.lorem.paragraphs(Math.ceil(Math.random() * 4))
   };
-  return obj;
+  return JSON.stringify(obj);
 }
 
 var reviews = function() {

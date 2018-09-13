@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewList from './ReviewList.jsx';
 import $ from 'jquery';
 
 class App extends React.Component {
@@ -12,10 +13,10 @@ class App extends React.Component {
 
   getReviews(restaurantId) {
     $.ajax({
-      url: `http://localhost:3003/restaurants/${restaurantid}`,
+      url: `http://localhost:3003/restaurants/${restaurantId}`,
       method: 'GET',
       success: (data) => {
-      	console.log('THIS BE THE DATA', data);
+      	console.log('GETTING DATA!!!!')
         this.setState({
           listOfReviews: data
         })
@@ -27,16 +28,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-  	this.getReviews(10);
+  	this.getReviews(55);
   }
 
   render() {
   	return (
-	 <div>
-	    {this.state.listOfReviews}YOYOYOYO
-	 </div>
+	   <div>
+	     <ReviewList reviews={this.state.listOfReviews} />
+	   </div>
 	 )
-  }
+   }
+
 }
 
 export default App;

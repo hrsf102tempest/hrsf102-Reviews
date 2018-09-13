@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express();
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const controllers = require('../database/index.js');
 
 app.use((req, res, next) => {
@@ -9,16 +9,16 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(__dirname + '/../client/dist'));
-app.use(bodyParser.json());
+
+// app.use(bodyParser.json());
 
 
 app.get('/restaurants/:restaurantId', function (req, res) {
-  console.log('THIE IS THE REQ', req.params.restaurantId)
   controllers.getReviews(req.params.restaurantId, (err, data) => {
-  	console.log('THIS BE THE req', req)
     if (err) {
       res.status(503).send(err);
     } else {
+      console.log('this is the data', data)
       res.send(data);
     }
   });

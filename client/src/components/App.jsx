@@ -7,7 +7,8 @@ class App extends React.Component {
     super(props);
 
   this.state = {
-    listOfReviews: []
+    listOfReviews: [],
+    reviewers: []
   };  
   }
 
@@ -16,7 +17,6 @@ class App extends React.Component {
       url: `http://localhost:3003/restaurants/${restaurantId}`,
       method: 'GET',
       success: (data) => {
-      	console.log('GETTING DATA!!!!')
         this.setState({
           listOfReviews: data
         })
@@ -27,8 +27,24 @@ class App extends React.Component {
     });
   }
 
+   getReviewers() {
+    $.ajax({
+      url: `http://localhost:3003/reviewers`,
+      method: 'GET',
+      success: (data) => {
+        this.setState({
+          reviewers: data
+        })
+      },
+      error: function (err) {
+        console.log('err', err);
+      },
+    });
+  }
+
   componentDidMount() {
-  	this.getReviews(55);
+  	this.getReviews(59);
+  	this.getReviewers();
   }
 
   render() {

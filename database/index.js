@@ -15,6 +15,17 @@ const getReviews = function (id, whenReviews) {
   });
 };
 
+const getReviewers = function (whenReviewers) {
+  connection.query(`SELECT * from reviewers`, function(error, results, fields) {
+    if (error) {
+      whenReviewers(error);
+    } else {
+      whenReviewers(null, results);
+    }
+  });
+};
+
  
 
 module.exports.getReviews = getReviews;
+module.exports.getReviewers = getReviewers;

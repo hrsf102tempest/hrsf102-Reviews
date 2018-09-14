@@ -18,7 +18,18 @@ app.get('/restaurants/:restaurantId', function (req, res) {
     if (err) {
       res.status(503).send(err);
     } else {
-      console.log('this is the data', data)
+      console.log('this is the restaurant data', data)
+      res.send(data);
+    }
+  });
+})
+
+app.get('/reviewers', function (req, res) {
+  controllers.getReviewers((err, data) => {
+    if (err) {
+      res.status(503).send(err);
+    } else {
+      console.log('this is the reviewer data', data)
       res.send(data);
     }
   });

@@ -7,6 +7,15 @@ import styled from 'styled-components';
 // import Text from './Text.jsx';
 
 
+// const itemStyle = {
+//   gridArea: 'review',
+//   borderTop: '1px solid #D3D3D3'
+// }
+  
+
+
+
+
 const Reviewer = styled.div`
   color: blue;
 
@@ -31,13 +40,14 @@ const TextBodyFormat = styled.div`
 `
 
 const Review = (props) => (
+  	
   <div>
       <Reviewer>{ props.individualReview.reviewerId }</Reviewer>
       <Star>{ props.individualReview.stars }</Star>
       <DateFormat>{ props.individualReview.reviewDate } </DateFormat>
       <TextBodyFormat>{ props.individualReview.textBody } </TextBodyFormat>
   </div>
-
+  
 );
 
 export default Review;

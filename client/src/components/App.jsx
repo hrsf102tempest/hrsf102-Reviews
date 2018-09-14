@@ -6,10 +6,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-  this.state = {
-    listOfReviews: [],
-    reviewers: []
-  };  
+    this.state = {
+      listOfReviews: [],
+      reviewers: []
+    };  
   }
 
   getReviews(restaurantId) {

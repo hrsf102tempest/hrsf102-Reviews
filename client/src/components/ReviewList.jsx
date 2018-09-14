@@ -1,24 +1,23 @@
 import React from 'react';
 import Review from './Review.jsx';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 
-
-// const Container = styled.container`
-//   display: grid;
-//   grid-template-columns: 1fr 2fr;
-// `  
-// const ReviewItem = styled.item`
-//   display: grid;
-//   grid-template-columns: 1fr 2fr;
-// `  
 
 
 const ReviewList = (props) => (
   <div>
+    <table>
     {
-      props.reviews.map(review => <Review individualReview={review}/>)
+      props.reviews.map(review => <tr>
+      	<td>
+      	  hello	
+      	</td>
+      	<td><Review individualReview={review} />
+      	</td>
+      	</tr>)
     }
+    </table>
   </div>
 );
 

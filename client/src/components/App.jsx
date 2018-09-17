@@ -1,6 +1,9 @@
 import React from 'react';
 import ReviewList from './ReviewList.jsx';
 import $ from 'jquery';
+import styled from 'styled-components';
+
+
 
 class App extends React.Component {
   constructor(props) {
@@ -50,7 +53,7 @@ class App extends React.Component {
   render() {
   	return (
 	   <div>
-	     <ReviewList reviews={this.state.listOfReviews} />
+	     <ReviewList reviews={this.state.listOfReviews} reviewers={this.state.reviewers} />
 	   </div>
 	 )
    }

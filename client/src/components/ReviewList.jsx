@@ -4,20 +4,21 @@ import styled from 'styled-components';
 
 
 
-// const Container = styled.container`
+// const Container = styled.div`
 //   display: grid;
-//   grid-template-columns: 1fr 2fr;
-// `  
-// const ReviewItem = styled.item`
-//   display: grid;
-//   grid-template-columns: 1fr 2fr;
+//   gridTemplateColumns: 40% 60%;
+//   width: 350px;
+//   gridGap: 20px;
 // `  
 
+// const ReviewStyle = styled.div`
+//   columnStart: 2;
+// `
 
 const ReviewList = (props) => (
   <div>
     {
-      props.reviews.map(review => <Review individualReview={review}/>)
+      props.reviews.map(review => <Review individualReview={review} />)
     }
   </div>
 );

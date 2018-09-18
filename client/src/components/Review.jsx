@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 import Stars from './Stars.jsx';
+import Reviewer from './Reviewer.jsx';
 
 
 // import Stars from './Stars.jsx';
@@ -9,9 +10,9 @@ import Stars from './Stars.jsx';
 // import Text from './Text.jsx';
 
 
-const Reviewer = styled.span`
-  color: blue;
-`
+// const Reviewer = styled.span`
+//   color: blue;
+// `
 
 // const Star = styled.span`
 //   color: #d32323;
@@ -40,37 +41,22 @@ const RightSideBar = styled.div`
 `
 
 const ReviewContainer = styled.div`
+  width: 500px;
   display: flex;
 `
 
-
-class Review extends React.Component {
-  constructor(props) {
-    super(props); 
-
-    this.state = {
-      numberOfStars: props.individualReview.stars,
-      reviewer: props.individualReview.reviewerId,
-      text: props.individualReview.textBody,
-      date: moment.utc(props.individualReview.reviewDate).format("MM/DD/YYYY")
-    };
-  }   
-
-  render() {
-    return (
-	  <ReviewContainer>
-	  	<LeftSideBar>
-	      <Reviewer>{ this.state.reviewer }</Reviewer>   
-		</LeftSideBar>
-		<RightSideBar>
-		  <Stars number={ this.state.numberOfStars } />
-	      <DateFormat> { this.state.date } </DateFormat>
-	      <TextBodyFormat>{ this.state.text } </TextBodyFormat>
-	  	</RightSideBar>
-	  </ReviewContainer>
-    );
-  }
-
-}
+const Review = (props) => (
+  <ReviewContainer>
+  	<LeftSideBar>
+      <Reviewer reviewer={ props.reviewer } />   
+	</LeftSideBar>
+	<RightSideBar>
+	  <Stars number={ props.individualReview.stars } />
+      <DateFormat> { moment.utc(props.individualReview.reviewDate).format("MM/DD/YYYY") } </DateFormat>
+      <TextBodyFormat>{ props.individualReview.textBody } </TextBodyFormat>
+  	</RightSideBar>
+  </ReviewContainer>
+);
+ 
 
 export default Review;

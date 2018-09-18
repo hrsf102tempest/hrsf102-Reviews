@@ -1,8 +1,6 @@
 import React from 'react';
 
-
 const Stars = (props) => {
-
     if (props.number === 5) {
       return (
         <img src ="https://s3-us-west-1.amazonaws.com/hahnyelp/small_5.png" />
@@ -28,9 +26,6 @@ const Stars = (props) => {
           <img src ="https://s3-us-west-1.amazonaws.com/hahnyelp/small_0.png" /> 
         )      
     }
-    
 };
   
-
-
 export default Stars;

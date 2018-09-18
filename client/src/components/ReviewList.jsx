@@ -18,7 +18,7 @@ import styled from 'styled-components';
 const ReviewList = (props) => (
   <div>
     {
-      props.reviews.map(review => <Review individualReview={review} />)
+      props.reviews.map(review => <Review individualReview={review} reviewer={props.reviewers[review.reviewerId]} />)
     }
   </div>
 );

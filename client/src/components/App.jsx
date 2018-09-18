@@ -4,7 +4,6 @@ import $ from 'jquery';
 import styled from 'styled-components';
 
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +45,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-  	this.getReviews(59);
+  	this.getReviews(75);
   	this.getReviewers();
   }
 

@@ -21,29 +21,37 @@ import Reviewer from './Reviewer.jsx';
 // `
 
 const DateFormat = styled.span`
-  color: #999999;
+  color: #333333;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  font-size: 9px;
+  font-size: 14px;
 `
 
 const TextBodyFormat = styled.div`
   color: #333333;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  font-size: 10px;
+  font-size: 14px;
 `
 
 const LeftSideBar = styled.div`
-  width: 37.5%;
+  flex: 1;
 `
 
 const RightSideBar = styled.div`
-  width: 62.5%;
+  flex: 3;
 `
 
 const ReviewContainer = styled.div`
-  width: 500px;
+  width: 629px;
+  margin: 15px;
+  border-top: 1px solid #E6E6E6;
+  padding-top: 12px;
   display: flex;
+  flex-flow: column / nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 `
+
+
 
 const Review = (props) => (
   <ReviewContainer>
@@ -52,9 +60,10 @@ const Review = (props) => (
 	</LeftSideBar>
 	<RightSideBar>
 	  <Stars number={ props.individualReview.stars } />
-      <DateFormat> { moment.utc(props.individualReview.reviewDate).format("MM/DD/YYYY") } </DateFormat>
+      <DateFormat> { moment.parseZone(props.individualReview.reviewDate).format('l') } </DateFormat>
       <TextBodyFormat>{ props.individualReview.textBody } </TextBodyFormat>
   	</RightSideBar>
+ 	
   </ReviewContainer>
 );
  

@@ -1,50 +1,58 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const ReviewerContainer = styled.div`
+  width: 240px;
+  display: flex;
+  flex-flow: column / nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+`
+const LeftSideBar = styled.div`
+  flex: 69px;
+`
 
+const RightSideBar = styled.div`
+  flex: 147px;
+`
 
 const ReviewerName = styled.div`
   color: #0097EC;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  font-size: 10px;
+  font-size: 16px;
+  line-height: 1.28571em;
   font-weight: bold;
 `
-
 const ReviewerLocation = styled.div`
   color: black;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
 `
 
-const ProfilePhoto = styled.div`
-  width: 25px,
-  height: 25px
+const ImageStyle = styled.img`
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
 `
 
+const Reviewer  = (props) => (
+      <ReviewerContainer>
+        <LeftSideBar>
+          <ImageStyle img src={ props.reviewer ? props.reviewer.profilePhoto : null } />
+	    </LeftSideBar>
+	    <RightSideBar>
+		    <ReviewerName>
+		       { props.reviewer ? props.reviewer.reviewerName : null }      
+		    </ReviewerName>
 
-class Reviewer extends React.Component {
-  render() {
-    return (
-      <div>
-      <ProfilePhoto>
-          {this.props.reviewer ? <img src = {this.props.reviewer.profilePhoto} /> : null}    
-      </ProfilePhoto>
-
-      <ReviewerName>
-        {this.props.reviewer ? this.props.reviewer.reviewerName : null}      
-      </ReviewerName>
-
-      <ReviewerLocation>
-      {this.props.reviewer ? this.props.reviewer.location : null}
-      </ReviewerLocation>
-
-      </div>
+		    <ReviewerLocation>
+		      { props.reviewer ? props.reviewer.location : null }
+		    </ReviewerLocation>
+        </RightSideBar>
+      </ReviewerContainer>
 
     );
-  }
-}
-
-
+  
 
 export default Reviewer;

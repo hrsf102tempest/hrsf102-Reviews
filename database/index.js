@@ -5,7 +5,27 @@ var connection = mysql.createConnection({
   database : 'yelpReviews'
 });
  
-connection.connect();
+const getReviews = function (id, whenReviews) {
+  connection.query(`SELECT * from reviews WHERE ${id} = restaurantId`, function(error, results, fields) {
+    if (error) {
+      whenReviews(error);
+    } else {
+      whenReviews(null, results);
+    }
+  });
+};
+
+const getReviewers = function (whenReviewers) {
+  connection.query(`SELECT * from reviewers`, function(error, results, fields) {
+    if (error) {
+      whenReviewers(error);
+    } else {
+      whenReviewers(null, results);
+    }
+  });
+};
+
  
 
-connection.end();
+module.exports.getReviews = getReviews;
+module.exports.getReviewers = getReviewers;

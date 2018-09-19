@@ -3,21 +3,12 @@ import Review from './Review.jsx';
 import styled, {css} from 'styled-components';
 
 
-
-
 const ReviewList = (props) => (
   <div>
-    <table>
     {
-      props.reviews.map(review => <tr>
-      	<td>
-      	  hello	
-      	</td>
-      	<td><Review individualReview={review} />
-      	</td>
-      	</tr>)
+      props.reviews.map(review => <Review individualReview={review} reviewer={props.reviewers[review.reviewerId]} />)  
     }
-    </table>
+   
   </div>
 );
 

@@ -14,9 +14,7 @@ class App extends React.Component {
     };  
   }
 
-
-
-  componentDidMount() {
+  getReviews() {
     // function that gets all search params
     const parseQueryString = () => {
       const str = window.location.search;
@@ -44,8 +42,10 @@ class App extends React.Component {
         console.log('err', err);
       }
     });
+  }
 
-     $.ajax({
+   getReviewers() {
+    $.ajax({
       url: `http://localhost:3003/reviewers`,
       method: 'GET',
       success: (data) => {
@@ -59,42 +59,10 @@ class App extends React.Component {
     });
   }
 
-
-  getReviews(restaurantId) {
-    $.ajax({
-      url: `http://localhost:3003/restaurants/${restaurantId}`,
-      method: 'GET',
-      success: (data) => {
-        var parsedData = JSON.parse(data);
-        this.setState({
-          listOfReviews: parsedData
-        })
-      },
-      error: function (err) {
-        console.log('err', err);
-      },
-    });
+  componentDidMount() {
+  	this.getReviews();
+  	this.getReviewers();
   }
-
-  //  getReviewers() {
-  //   $.ajax({
-  //     url: `http://localhost:3003/reviewers`,
-  //     method: 'GET',
-  //     success: (data) => {
-  //       this.setState({
-  //         reviewers: data
-  //       })
-  //     },
-  //     error: function (err) {
-  //       console.log('err', err);
-  //     },
-  //   });
-  // }
-
-  // componentDidMount() {
-  // 	this.getReviews(115);
-  // 	this.getReviewers();
-  // }
 
   render() {
   	return (

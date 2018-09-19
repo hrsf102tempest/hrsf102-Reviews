@@ -14,8 +14,6 @@ const DateFormat = styled.span`
 `
 
 const TextBodyFormat = styled.div`
-
-
   color: #333333;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 14px;
@@ -66,8 +64,7 @@ const Review = (props) => (
   	<LeftSideBar>
       <Reviewer reviewer={ props.reviewer } />   
 	</LeftSideBar>
-	<RightSideBar>
-	  
+	<RightSideBar>	  
 	  <Stars number={ props.individualReview.stars } />
       <DateFormat>
          { moment.parseZone(props.individualReview.reviewDate).format('l') } 

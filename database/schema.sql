@@ -29,7 +29,10 @@ CREATE TABLE reviews (
   stars INT,
   reviewDate VARCHAR(99),
   checkIns INT,
-  textBody VARCHAR(9999),
+  textBody VARCHAR(1999),
+  textBody2 VARCHAR(1999),
+  textBody3 VARCHAR(1999),
+  textBody4 VARCHAR(1999),
   PRIMARY KEY (reviewId),
   FOREIGN KEY (restaurantId) REFERENCES restaurants(id),
   FOREIGN KEY (reviewerId) REFERENCES reviewers(reviewerId)

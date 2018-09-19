@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const StarStyle = styled.img`
   width: 102px;
   height: 18px;
+  margin-right: 5px;
 `
 
 const Stars = (props) => {

@@ -13,7 +13,7 @@ var reviewer = function(reviewerId) {
 	return {
 	reviewerId: reviewerId,
 	reviewerName: faker.name.firstName() + ' ' + faker.name.lastName()[0] + '.',
-	location: faker.address.city() + ', ' + faker.address.state(),
+	location: faker.address.city() + ', ' + faker.address.stateAbbr(),
 	profilePhoto: faker.image.avatar(),
   friends: Math.ceil(Math.random() * 500),
   reviews: Math.ceil(Math.random() * 500),

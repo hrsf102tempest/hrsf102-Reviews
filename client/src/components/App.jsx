@@ -14,23 +14,38 @@ class App extends React.Component {
     };  
   }
 
-  getReviews(restaurantId) {
-    $.ajax({
-      url: `http://localhost:3003/restaurants/${restaurantId}`,
-      method: 'GET',
-      success: (data) => {
-        this.setState({
-          listOfReviews: data
-        })
-      },
-      error: function (err) {
-        console.log('err', err);
-      },
-    });
-  }
 
-   getReviewers() {
+
+  componentDidMount() {
+    // function that gets all search params
+    const parseQueryString = () => {
+      const str = window.location.search;
+      const objURL = {};
+      str.replace(new RegExp('([^?=&]+)(=([^&]*))?', 'g'), ($0, $1, $2, $3) => {
+        objURL[$1] = $3;
+      });
+      return objURL;
+    };
+    
+    const params = parseQueryString();
+    const restaurantId = params.id;
     $.ajax({
+      url: `http://127.0.0.1:3003/restaurants/${restaurantId}`,
+      // url: `http://127.0.0.1:3004/business/12`,
+      method: 'GET',
+      success: data => {
+        const parsedData = JSON.parse(data);
+        // console.log('Data for this business', businessData);
+        this.setState({
+          listOfReviews: parsedData
+        });
+      },
+      error: function(err) {
+        console.log('err', err);
+      }
+    });
+
+     $.ajax({
       url: `http://localhost:3003/reviewers`,
       method: 'GET',
       success: (data) => {
@@ -44,10 +59,42 @@ class App extends React.Component {
     });
   }
 
-  componentDidMount() {
-  	this.getReviews(75);
-  	this.getReviewers();
+
+  getReviews(restaurantId) {
+    $.ajax({
+      url: `http://localhost:3003/restaurants/${restaurantId}`,
+      method: 'GET',
+      success: (data) => {
+        var parsedData = JSON.parse(data);
+        this.setState({
+          listOfReviews: parsedData
+        })
+      },
+      error: function (err) {
+        console.log('err', err);
+      },
+    });
   }
+
+  //  getReviewers() {
+  //   $.ajax({
+  //     url: `http://localhost:3003/reviewers`,
+  //     method: 'GET',
+  //     success: (data) => {
+  //       this.setState({
+  //         reviewers: data
+  //       })
+  //     },
+  //     error: function (err) {
+  //       console.log('err', err);
+  //     },
+  //   });
+  // }
+
+  // componentDidMount() {
+  // 	this.getReviews(115);
+  // 	this.getReviewers();
+  // }
 
   render() {
   	return (

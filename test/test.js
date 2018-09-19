@@ -21,7 +21,7 @@ afterAll(() => {
   browser.close();
 });
 
-describee('search function' () => {
+describe('search function' () => {
 
 
 

@@ -15,6 +15,7 @@ const DateFormat = styled.span`
 
 const TextBodyFormat = styled.div`
 
+
   color: #333333;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 14px;
@@ -88,6 +89,7 @@ const Review = (props) => (
   	</RightSideBar>
  	
   </ReviewContainer>
+
 );
  
 

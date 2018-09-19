@@ -153,9 +153,7 @@ var data = [
 { id: 150, name: 'Ben Sherman' } 
 ];
 
-
 module.exports = {
-  restaurantData: restaurantData,
+  data: data
 };
-
 

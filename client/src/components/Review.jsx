@@ -50,7 +50,6 @@ const RightSideBar = styled.div`
 `
 const ReviewContainer = styled.div`
   width: 629px;
-  margin: 15px;
   border-top: 1px solid #E6E6E6;
   padding-top: 12px;
   display: flex;

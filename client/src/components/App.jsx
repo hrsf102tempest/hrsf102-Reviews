@@ -28,11 +28,13 @@ class App extends React.Component {
     const params = parseQueryString();
     const restaurantId = params.id;
     $.ajax({
-      url: `http://127.0.0.1:3003/restaurants/${restaurantId}`,
+      url: `http://localhost:3000/api/reviews/restaurants/${restaurantId}`,
       // url: `http://127.0.0.1:3004/business/12`,
       method: 'GET',
       success: data => {
         const parsedData = JSON.parse(data);
+        console.log('restaurants', parsedData);
+        // console.log('HERE IS THE REVIEW DATA', parsedData);
         // console.log('Data for this business', businessData);
         this.setState({
           listOfReviews: parsedData
@@ -46,11 +48,13 @@ class App extends React.Component {
 
    getReviewers() {
     $.ajax({
-      url: `http://localhost:3003/reviewers`,
+      url: `http://localhost:3000/api/reviews/reviewers`,
       method: 'GET',
       success: (data) => {
+        const parsedData = JSON.parse(data);
+        console.log('HERE IS THE REVIEWER DATA', parsedData);
         this.setState({
-          reviewers: data
+          reviewers: parsedData
         })
       },
       error: function (err) {

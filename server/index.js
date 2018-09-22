@@ -18,7 +18,6 @@ app.use('/biz/', express.static(__dirname + '/../client/dist'));
 
 // app.use(bodyParser.json());
 
-
 app.get('/restaurants/:restaurantId', function (req, res) {
   controllers.getReviews(req.params.restaurantId, (err, data) => {
     if (err) {
@@ -36,7 +35,7 @@ app.get('/reviewers', function (req, res) {
       res.status(503).send(err);
     } else {
       // console.log('this is the reviewer data', data)
-      res.send(data);
+      res.send(JSON.stringify(data));
     }
   });
 })

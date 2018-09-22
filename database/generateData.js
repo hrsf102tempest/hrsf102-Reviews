@@ -79,9 +79,11 @@ var generateReviewData = function(){
 }
 
 var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
+  host: "tempestyelp.cmhhyglbcvch.us-west-1.rds.amazonaws.com",
+  user: "tempest",
+  password: "August07",
   database: "yelpReviews"
+
 });
 
 con.connect(function(err) {
